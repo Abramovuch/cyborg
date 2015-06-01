@@ -56,3 +56,13 @@ Writing a scraper is really simple. Here is the entire implementation for the `A
                   
 
 Every scraper must have a `scrape(data, response)` function. This should then yield (data, url), the data is passed to the next scraper in the pipeline along with the URL response. This can be queried using CSS selectors.
+
+## What works?
+This is just an alpha at the moment, the example works but there is still a lot to be done:
+
+   - Rate limiting
+   - Configurable number of workers
+   - Testing
+   - Parallel pipelines:
+      - `Pipeline.parallel(pipeline1, pipeline2).pipe(pipeline3)` - run two pipelines in parallel and pipe it to a third
+   - Documentation
