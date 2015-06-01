@@ -66,7 +66,7 @@ You can run the example by just executing `python3 run.py` inside the example/ d
     MenuScraper         :     16: {}
     GeoIPScraper        :      7: {}
     
-This is the status of the pipeline, the number is the number of tasks that have been processed. The dictionary to the right will display error totals, for examle `{"notfound":4, "exception":2}`.
+This is the status of the pipeline, the number is the number of tasks that have been processed. The dictionary to the right will display error totals, for examle `{"notfound":4, "exception":2}`. Data should start to appear inside `results` file as soon as the GeoIPScraper has processed some data.
 
 ## What works?
 This is just an alpha at the moment, the example works but there is still a lot to be done:
