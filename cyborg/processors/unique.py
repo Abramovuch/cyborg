@@ -10,6 +10,8 @@ def UniqueProcessor(key):
         key_func = key
     else:
         raise RuntimeError("Key is not a string or callable")
+        
+    # This is a simple implementation that uses a dictionary. Could be improved a lot.
 
     class _UniqueProcessor(Processor):
         def __init__(self, *args, **kwargs):
