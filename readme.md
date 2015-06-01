@@ -4,7 +4,7 @@ Cyborg is an asyncio Python web scraping framework that helps you write programs
 
 ## What?
 
-Scraping websites for data can be fairly complex when you are dealing with data across multiple pages, request limits and error handling. Cyborg aims to handle all of this for you transparently, so that you can focus on the actual extraction of data rather than all the stuff around it. It does this by breaking everything down into a *Pipeline*, for example below is a Pipeline that scrapes takeaways from Just-Eat:
+Scraping websites for data can be fairly complex when you are dealing with data across multiple pages, request limits and error handling. Cyborg aims to handle all of this for you transparently, so that you can focus on the actual extraction of data rather than all the stuff around it. It does this by helping you break the process down into smaller chunks, which can be combined into a *Pipeline*, for example below is a Pipeline that scrapes takeaway menus from Just-Eat:
 
     from cyborg import Pipeline
     from example.scrapers.justeat import *
