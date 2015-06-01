@@ -1,6 +1,6 @@
 # Cyborg
 
-Cyborg is an asyncio Python web scraping framework that helps you write programs to extract information from websites by reading and inspecting their HTML.
+Cyborg is an asyncio Python 3 web scraping framework that helps you write programs to extract information from websites by reading and inspecting their HTML.
 
 ## What?
 
