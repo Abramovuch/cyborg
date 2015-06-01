@@ -39,14 +39,14 @@ This Pipeline has several stages:
       
 Running a pipeline is as simple as `asyncio.get_event_loop().run_until_complete(pipe.run())`. This then handles things like retrying failed requests, tracking exceptions/errors and parallel connections.
 
+Currently any exceptions are logged and totalled for each process within a pipeline, however in the future the library will persist more data upon exceptions like the current pages HTML and offer the ability to reply these failed tasks during development.
+
 ## Writing a scraper
 Writing a scraper is really simple. Here is the entire implementation for the `AreaScraper`:
 
     from cyborg import Page, Scraper
 
-
     class AreaScraper(Scraper):
-
       page_format = Page("/{input}-takeaways")
 
       def scrape(self, data, response):
@@ -56,6 +56,17 @@ Writing a scraper is really simple. Here is the entire implementation for the `A
                   
 
 Every scraper must have a `scrape(data, response)` function. This should then yield (data, url), the data is passed to the next scraper in the pipeline along with the URL response. This can be queried using CSS selectors.
+
+## Running the example
+You can run the example by just executing `python3 run.py` inside the example/ directory. Every second you will see output like this:
+
+    AreaScraper         :      5: {}
+    TakeawayScraper     :      6: {}
+    _UniqueProcessor    :     26: {}
+    MenuScraper         :     16: {}
+    GeoIPScraper        :      7: {}
+    
+This is the status of the pipeline, the number is the number of tasks that have been processed. The dictionary to the right will display error totals, for examle `{"notfound":4, "exception":2}`.
 
 ## What works?
 This is just an alpha at the moment, the example works but there is still a lot to be done:
