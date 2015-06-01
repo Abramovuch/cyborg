@@ -1,6 +1,7 @@
 import asyncio
 import logging
 
+# Change this to logging.INFO to see more information. Setting it to logging.DEBUG is a bit too much.
 logging.basicConfig(level=logging.WARN)
 
 from example.scrapers.geoip import GeoIPScraper
@@ -20,17 +21,6 @@ just_eat_pipeline = Pipeline()\
     .unique("id")\
     .pipe(MenuScraper)
 
-
-
-test_pipeline = Pipeline()\
-    .set_host("http://just-eat.co.uk")\
-    .pipe(
-        Pipeline.parallel(
-            Pipeline().pipe(TakeawayScraper).pipe(MenuScraper),
-            Pipeline().pipe(TakeawayScraper).pipe(MenuScraper)
-        )
-    )\
-    .feed((({}, "/italian-takeaways/hull"),))
 
 def main():
     with open("results", "w") as fd:

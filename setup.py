@@ -9,5 +9,5 @@ setup(
     author='Orf',
     author_email='tom@tomforb.es',
     description='',
-    requires=["requests", 'aiohttp']
+    requires=["requests", 'aiohttp', 'lxml']
 )
